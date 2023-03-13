@@ -4,10 +4,10 @@ const express = require("express");
 
 const app = express();
 
-// serves up static files from the public folder. 
-app.use(express.static('public')); 
-// also add a path to static 
-app.use('/static', express.static('public')); 
+// serves up static files from the views folder. 
+app.use(express.static('views')); 
+// also add a path to views 
+app.use('/static', express.static('views')); 
 
 const Movie = require("./models/Movie.js");
 const User = require("./models/User.js");
