@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // use the route handlers
 const movieRouter = require("./handlers/movieRouter.js");
+movieRouter.handleRoot(app, Movie);
 movieRouter.handleAllMovies(app, Movie);
 movieRouter.handleMoviesByAmount(app, Movie);
 movieRouter.handleMovieByID(app, Movie);

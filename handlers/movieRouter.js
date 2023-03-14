@@ -239,6 +239,7 @@ const handleMoviesByGenreName = (app, Movie) => {
 };
 
 module.exports = {
+  handleRoot,
   handleAllMovies,
   handleMoviesByAmount,
   handleMovieByID,
