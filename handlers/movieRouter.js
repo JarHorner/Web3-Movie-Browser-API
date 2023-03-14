@@ -4,6 +4,27 @@ const jsonErrorMessage = (msg) => {
 };
 
 // handle GET requests for [domain]/api/movies - return all movies
+const handleRoot = (app, Movie) => {
+  app.route("/").get(async (req, resp) => {
+    try {
+        resp.json({
+          message: "This is the Movie Browser API! the following are calls you can make:",
+          AllMovies: "[domain]/api/movies",
+          MoviesByAmount: "[domain]/api/movies/limit/150",
+          MovieByID:"[domain]/api/movie/13",
+          MovieByTMDBID: "[domain]/api/movie/tmdb/14",
+          MoviesByYear: "[domain]/api/movies/year/1980/2000",
+          MoviesByRating: "[domain]/api/movies/rating/7/8",
+          MoviesByTitle: "[domain]/api/movies/title/Jarhead",
+          MoviseByGenreName: "[domain]/api/movies/genre/Drama",
+        });
+    } catch (e) {
+      jsonErrorMessage(e);
+    }
+  });
+};
+
+// handle GET requests for [domain]/api/movies - return all movies
 const handleAllMovies = (app, Movie) => {
   app.route("/api/movies").get(async (req, resp) => {
     try {
@@ -91,7 +112,7 @@ const handleMovieByTMDBID = (app, Movie) => {
 
 // handle requests for movies with specific year ranges:
 // e.g., [domain]/api/movies/year/1980/2000
-const handleMovieByYear = (app, Movie) => {
+const handleMoviesByYear = (app, Movie) => {
   app.route("/api/movies/year/:min?/:max?").get(async (req, resp) => {
     try {
       const movies = await Movie.find();
@@ -147,7 +168,7 @@ const handleMovieByYear = (app, Movie) => {
 
 // handle requests for movies with specific rating ranges:
 // e.g., [domain]/api/movies/rating/7/8
-const handleMovieByRating = (app, Movie) => {
+const handleMoviesByRating = (app, Movie) => {
   app.route("/api/movies/ratings/:min/:max").get(async (req, resp) => {
     try {
       const movies = await Movie.find()
@@ -173,7 +194,7 @@ const handleMovieByRating = (app, Movie) => {
 
 // handle requests for specific movies whose title contains the provided text:
 // e.g., [domain]/api/movies/title/Jarhead
-const handleMovieByTitle = (app, Movie) => {
+const handleMoviesByTitle = (app, Movie) => {
   app.route("/api/movies/title/:text").get(async (req, resp) => {
     try {
       const movies = await Movie.find({
@@ -196,7 +217,7 @@ const handleMovieByTitle = (app, Movie) => {
 
 // handle requests for specific movies whose genre matches the provided name:
 // e.g., [domain]/api/movies/genre/Drama
-const handleMovieByGenreName = (app, Movie) => {
+const handleMoviesByGenreName = (app, Movie) => {
   app.route("/api/movies/genre/:name").get(async (req, resp) => {
     try {
       const movie = await Movie.find({
@@ -222,8 +243,8 @@ module.exports = {
   handleMoviesByAmount,
   handleMovieByID,
   handleMovieByTMDBID,
-  handleMovieByYear,
-  handleMovieByRating,
-  handleMovieByTitle,
-  handleMovieByGenreName,
+  handleMoviesByYear,
+  handleMoviesByRating,
+  handleMoviesByTitle,
+  handleMoviesByGenreName,
 };
