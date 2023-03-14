@@ -21,10 +21,10 @@ movieRouter.handleAllMovies(app, Movie);
 movieRouter.handleMoviesByAmount(app, Movie);
 movieRouter.handleMovieByID(app, Movie);
 movieRouter.handleMovieByTMDBID(app, Movie);
-movieRouter.handleMovieByYear(app, Movie);
-movieRouter.handleMovieByRating(app, Movie);
-movieRouter.handleMovieByTitle(app, Movie);
-movieRouter.handleMovieByGenreName(app, Movie);
+movieRouter.handleMoviesByYear(app, Movie);
+movieRouter.handleMoviesByRating(app, Movie);
+movieRouter.handleMoviesByTitle(app, Movie);
+movieRouter.handleMoviesByGenreName(app, Movie);
 
 // use the route handlers
 const userRouter = require("./handlers/userRouter.js");
@@ -37,7 +37,7 @@ app.use(function (req, res, next) {
     res.status(404).send("Sorry can't find that!") 
    }); 
 
-const port = process.env.port;
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log("Server running at port= " + port);
 });

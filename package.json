@@ -7,6 +7,9 @@
   "scripts": { 
     "start": "node movie-server.js" 
   },
+  "engines": { 
+    "node": "16.17.1" 
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JarHorner/Web3-Movie-Browser-API.git"
