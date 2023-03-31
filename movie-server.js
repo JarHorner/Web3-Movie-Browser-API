@@ -1,9 +1,11 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 
+app.use(cors());
 // serves up static files from the views folder. 
 app.use(express.static('views')); 
 // also add a path to views 
