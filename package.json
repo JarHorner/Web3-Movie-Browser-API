@@ -4,6 +4,7 @@
   "description": "An API that returns movies based on certain criteria",
   "main": "movie-server.js",
   "scripts": {
+    "devcss": "postcss public/styles/tailwind.css -o public/styles/build.css -w",
     "start": "node movie-server.js"
   },
   "engines": {
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/JarHorner/Web3-Movie-Browser-API#readme",
   "dependencies": {
+    "autoprefixer": "^10.4.14",
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -30,6 +32,11 @@
     "express-session": "^1.17.3",
     "mongoose": "^7.0.3",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "postcss": "^8.4.21"
+  },
+  "devDependencies": {
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.3.1"
   }
 }

@@ -24,7 +24,8 @@ app.set("views", "./views");
 app.set("view engine", "ejs");
 
 // serves up static files from the views folder.
-app.use("/static", express.static(path.join(__dirname, "public")));
+
+app.use(express.static("public"));
 
 // tell node to use json and HTTP header features in body-parser
 app.use(express.json());
