@@ -84,7 +84,7 @@ app.post("/login", async (req, resp, next) => {
   })(req, resp, next);
 });
 app.get("/logout", (req, resp) => {
-  req.logout();
+  req.logout(() =>{});
   req.flash("info", "You were logged out");
   resp.render("login", { message: req.flash("info") });
 });
