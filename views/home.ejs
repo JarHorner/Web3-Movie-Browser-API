@@ -6,8 +6,10 @@
     <main class="book">
       <section class="pagecontent">
         <p>This is the home page!</p>
-        Welcome <%= user.details.firstname %>
-        <%= user.details.lastname %> 
+        <p>
+          Welcome <%= user.details.firstname %> <%= user.details.lastname %>
+        </p>
+        <button><a href="/logout">Log Out!</a></button>
       </section>
     </main>
     <%- include('./partials/footer'); %>
