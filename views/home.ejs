@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head'); %>
+  <body>
+    <%- include('./partials/header'); %>
+    <main class="book">
+      <section class="pagecontent">
+        <p class=" text-7xl">This is the home page!</p>
+        <p>
+          Welcome <%= user.details.firstname %> <%= user.details.lastname %>
+        </p>
+        <button><a href="/logout">Log Out!</a></button>
+      </section>
+    </main>
+    <%- include('./partials/footer'); %>
+  </body>
+</html>
