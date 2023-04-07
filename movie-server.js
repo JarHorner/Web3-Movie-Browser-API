@@ -2,7 +2,6 @@
 require("dotenv").config();
 
 const path = require("path");
-const express = require("express");
 const cors = require("cors");
 const express = require("express");
 const session = require("express-session");
@@ -49,11 +48,10 @@ app.use(passport.session());
 app.use(flash());
 
 // set up the passport authentication
-require('./scripts/auth.js'); 
+require('./authentication/auth.js'); 
 
 // sets up the handlers for each API
 const Movie = require("./models/Movie.js");
-const User = require("./models/User.js");
 
 // use the route handlers for Movie
 const movieRouter = require("./handlers/movieRouter.js");
@@ -66,11 +64,6 @@ movieRouter.handleMoviesByYear(app, Movie);
 movieRouter.handleMoviesByRating(app, Movie);
 movieRouter.handleMoviesByTitle(app, Movie);
 movieRouter.handleMoviesByGenreName(app, Movie);
-
-// use the route handlers for User
-const userRouter = require("./handlers/userRouter.js");
-userRouter.handleAllUsers(app, User);
-
 
 /*--- in site page requests ----*/
 
