@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('./partials/head'); %>
-  <body>
+  <body class=" flex flex-col h-screen bg-pink-50">
     <%- include('./partials/header'); %>
-    <main class="book">
-      <section class="pagecontent">
-        <p class=" text-7xl">This is the home page!</p>
-        <p>
+    <main class="flex-1 flex justify-center items-center animate-scaleUp">
+      <section class=" ">
+        <p class=" text-3xl text-pink-900">This is the home page!</p>
+        <p class=" text-xl text-pink-600">
           Welcome <%= user.details.firstname %> <%= user.details.lastname %>
         </p>
-        <button><a href="/logout">Log Out!</a></button>
+        <button class=" p-3 bg-pink-700 rounded-lg text-white w-24 hover:cursor-pointer hover:scale-105 hover:drop-shadow-lg transition-all"><a href="/logout">Log Out!</a></button>
       </section>
     </main>
     <%- include('./partials/footer'); %>
